@@ -1,7 +1,8 @@
 import csv
 import pandas as pd
 import folium
-import folium.plugins
+from folium import plugins
+from folium.plugins import MarkerCluster
 
 
 #Read CSV file
@@ -57,7 +58,7 @@ price = price.values.tolist()
 
 map2 = folium.Map(location=[45.7372756, 4.8175837], tiles='CartoDB dark_matter', zoom_start=11)
 
-marker_cluster = folium.MarkerCluster().add_to(map2)
+marker_cluster = folium.plugins.MarkerCluster().add_to(map2)
 
 for point in range(0, len(locationlist)):
     folium.Marker(locationlist[point], popup=price[point]).add_to(marker_cluster)
