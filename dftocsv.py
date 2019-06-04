@@ -17,7 +17,7 @@ df = df.dropna()
 df = df.loc[(df['code_postal'] == 69600)]
 
 #Filter only appartments and houses
-df = df.loc[df['type_local'].isin(['Appartement', 'Maison'])]
+df = df.loc[(df['type_local'] == 'Appartement') | (df['type_local'] == 'Maison')]
 
 #Sort elements in asc
 #df = df.sort_values(by='code_postal')
