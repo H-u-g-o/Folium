@@ -73,3 +73,19 @@ d18m = d18m['prix_m2'].mean()
 prix_m = (d14m,d15m,d16m,d17m,d18m)
 prix_a = (d14a,d15a,d16a,d17a,d18a)
 
+
+ind = np.arange(len(prix_m))  # the x locations for the groups
+width = 0.35  # the width of the bars
+
+fig, ax = plt.subplots()
+rects1 = ax.bar(ind - width/2, prix_m, width, label='Maison')
+rects2 = ax.bar(ind + width/2, prix_a, width, label='Appartement')
+
+# Add some text for labels, title and custom x-axis tick labels, etc.
+ax.set_ylabel('Prix au m2')
+ax.set_title('Evolution du prix au m2 de #Brookllins')
+ax.set_xticks(ind)
+ax.set_xticklabels(('2014', '2015', '2016', '2017', '2018'))
+ax.legend()
+
+plt.savefig('graph.png')
